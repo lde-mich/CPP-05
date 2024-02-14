@@ -33,13 +33,28 @@ class Bureaucrat
 		Bureaucrat(Bureaucrat const &bureaucrat);
 		Bureaucrat();
 		~Bureaucrat();
+
+		//Exception
+
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				std::string const printError() const throw ()
+				{
+					return ("Error High Bureaucrate grade");
+				}
+		};
+
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				std::string const printError() const throw()
+				{
+					return ("Error Low Bureaucrate grade");
+				}
+		};
+
 };
-
-
-
-
-
-
 
 
 

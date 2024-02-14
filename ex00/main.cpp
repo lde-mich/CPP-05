@@ -12,3 +12,27 @@
 
 #include "Bureaucrat.hpp"
 
+int main(void)
+{
+    Bureaucrat  a("Adi-stef", 1);
+    Bureaucrat  b("Lde-mich", 150);
+	Bureaucrat  c("Mpaterno", 0);
+	Bureaucrat  d("Dcastagn", 151);
+	Bureaucrat	e("Gpanico", 50);
+
+
+	try
+	{
+	}
+	catch (std::exception & e)
+	{
+	}
+
+	return (0);
+}
+
+
+
+
+
+
