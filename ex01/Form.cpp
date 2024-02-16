@@ -6,7 +6,7 @@
 /*   By: lde-mich <lde-mich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 12:49:01 by lde-mich          #+#    #+#             */
-/*   Updated: 2024/02/16 15:01:24 by lde-mich         ###   ########.fr       */
+/*   Updated: 2024/02/16 15:53:08 by lde-mich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,24 @@ bool const &Form::getFirmed() const
 	return (this->firmed);
 }
 
+
+
+Form &Form::operator=(Form const &form)
+{
+	this->name = form.name;
+	this->firmed = form.firmed;
+	this->gradeSign = form.gradeSign;
+	this->gradeExec = form.gradeExec;
+
+	return (*this);
+}
+
+
+std::ostream &operator<<(std::ostream &out, Form const &form)
+{
+	out << form.getName() << ", " << form.getGradeSign() << ", " << form.getGradeExec() << ", " << getFirmed();
+	return (out);
+}
 
 
 

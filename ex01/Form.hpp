@@ -6,7 +6,7 @@
 /*   By: lde-mich <lde-mich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 12:43:30 by lde-mich          #+#    #+#             */
-/*   Updated: 2024/02/16 14:45:57 by lde-mich         ###   ########.fr       */
+/*   Updated: 2024/02/16 15:46:54 by lde-mich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ class Form
 		};
 };
 
-
+std::ostream &operator<<(std::ostream &out, Form const &form);
 
 
 
