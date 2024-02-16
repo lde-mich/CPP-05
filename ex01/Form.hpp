@@ -6,14 +6,14 @@
 /*   By: lde-mich <lde-mich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 12:43:30 by lde-mich          #+#    #+#             */
-/*   Updated: 2024/02/16 15:46:54 by lde-mich         ###   ########.fr       */
+/*   Updated: 2024/02/16 15:58:17 by lde-mich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #pragma once
 #include <iostream>
-
+#include "Bureaucrat.hpp"
 
 class Form
 {
@@ -30,6 +30,8 @@ class Form
 		bool const &getFirmed() const;
 
 		Form &operator=(Form const &form);
+
+		void beSigned(Bureaucrat const &bureaucrat);
 		
 		Form(Form const &form);
 		Form();

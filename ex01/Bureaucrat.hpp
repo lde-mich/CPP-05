@@ -6,7 +6,7 @@
 /*   By: lde-mich <lde-mich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 11:27:07 by lde-mich          #+#    #+#             */
-/*   Updated: 2024/02/14 11:42:15 by lde-mich         ###   ########.fr       */
+/*   Updated: 2024/02/16 16:10:28 by lde-mich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class Bureaucrat
 
 		void increment();
 		void decrement();
+		void signForm();
 
 		Bureaucrat &operator=(Bureaucrat const &bureaucrat);
 

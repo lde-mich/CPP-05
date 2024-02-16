@@ -6,7 +6,7 @@
 /*   By: lde-mich <lde-mich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 12:49:01 by lde-mich          #+#    #+#             */
-/*   Updated: 2024/02/16 15:53:08 by lde-mich         ###   ########.fr       */
+/*   Updated: 2024/02/16 16:08:30 by lde-mich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,13 @@ std::ostream &operator<<(std::ostream &out, Form const &form)
 }
 
 
+void Form::beSigned(Bureaucrat const &bureaucrat)
+{
+	if (bureaucrat.getGrade() >= this->gradeSign)
+		this->firmed = true;
+	else
+		Form::GradeTooLowException();
+}
 
 
 
