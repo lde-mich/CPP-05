@@ -6,7 +6,7 @@
 /*   By: lde-mich <lde-mich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 12:49:01 by lde-mich          #+#    #+#             */
-/*   Updated: 2024/02/16 16:08:30 by lde-mich         ###   ########.fr       */
+/*   Updated: 2024/02/17 20:37:45 by lde-mich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ Form &Form::operator=(Form const &form)
 
 std::ostream &operator<<(std::ostream &out, Form const &form)
 {
-	out << form.getName() << ", " << form.getGradeSign() << ", " << form.getGradeExec() << ", " << getFirmed();
+	out << form.getName() << ", " << form.getGradeSign() << ", " << form.getGradeExec() << ", " << form.getFirmed();
 	return (out);
 }
 
