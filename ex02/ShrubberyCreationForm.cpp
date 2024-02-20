@@ -6,7 +6,7 @@
 /*   By: lde-mich <lde-mich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 14:23:58 by lde-mich          #+#    #+#             */
-/*   Updated: 2024/02/20 12:14:15 by lde-mich         ###   ########.fr       */
+/*   Updated: 2024/02/21 00:29:39 by lde-mich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,25 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm co
 
 	return (*this);
 }
+
+
+void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
+{
+	if (!this->getFirmed())
+		AForm::FormNotSignedException();
+	else if (executor.getGrade() > this->getGradeExec())
+		AForm::GradeTooLowException();
+
+	std::ofstream fout((this->target + "_shrubbery").c_str());
+
+	for(int i=0 ;i<200 ;i++)
+		fout<< tree[i];
+	fout.close();
+}
+
+
+
+
 
 
 

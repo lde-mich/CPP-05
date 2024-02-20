@@ -6,7 +6,7 @@
 /*   By: lde-mich <lde-mich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:01:22 by lde-mich          #+#    #+#             */
-/*   Updated: 2024/02/20 12:09:42 by lde-mich         ###   ########.fr       */
+/*   Updated: 2024/02/21 00:26:17 by lde-mich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,18 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const &o
 }
 
 
+void RobotomyRequestForm::execute(Bureaucrat const &executor) const
+{
+	if (!this->getFirmed())
+		AForm::FormNotSignedException();
+	else if (executor.getGrade() > this->getGradeExec())
+		AForm::GradeTooLowException();
 
+	if (rand() %100 > 50)
+		std::cout<< this->target << " has been robotomized" << std::endl;
+	else
+		std::cout << this->target << " robotomy failed" << std::endl;
+}
 
 
 

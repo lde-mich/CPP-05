@@ -6,12 +6,13 @@
 /*   By: lde-mich <lde-mich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 14:06:01 by lde-mich          #+#    #+#             */
-/*   Updated: 2024/02/19 15:19:07 by lde-mich         ###   ########.fr       */
+/*   Updated: 2024/02/20 19:39:11 by lde-mich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream>
+#include <fstream>
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
@@ -26,6 +27,8 @@ class ShrubberyCreationForm: public AForm
 		std::string const &getTarget() const;
 
 		ShrubberyCreationForm &operator=(ShrubberyCreationForm const &obj);
+
+		void execute(Bureaucrat const &executor) const;
 
 		ShrubberyCreationForm(ShrubberyCreationForm const &obj);
 		ShrubberyCreationForm(std::string target);

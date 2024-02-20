@@ -6,66 +6,66 @@
 /*   By: lde-mich <lde-mich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 12:49:01 by lde-mich          #+#    #+#             */
-/*   Updated: 2024/02/17 20:37:45 by lde-mich         ###   ########.fr       */
+/*   Updated: 2024/02/20 19:45:25 by lde-mich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
 
-Form::Form()
+AForm::AForm()
 {
 
 }
 
-Form::Form(std::string name, int gradeSign, int gradeExec)
+AForm::AForm(std::string name, int gradeSign, int gradeExec)
 {
 	this->name = name;
 	this->gradeSign = gradeSign;
 	this->gradeExec = gradeExec;
 
 	if (this->gradeSign < 1 || this->gradeExec < 1)
-		Form::GradeTooLowException();
+		AForm::GradeTooLowException();
 	else if (this->gradeSign > 150 || this->gradeExec > 150)
-		Form::GradeTooHighException();
+		AForm::GradeTooHighException();
 }
 
-Form::Form(Form const &form)
+AForm::AForm(AForm const &form)
 {
 	(*this) = form;
 }
 
 
-Form::~Form()
+AForm::~AForm()
 {
 
 }
 
 
 
-std::string const &Form::getName() const
+std::string const &AForm::getName() const
 {
 	return (this->name);
 }
 
-int const &Form::getGradeSign() const
+int const &AForm::getGradeSign() const
 {
 	return (this->gradeSign);
 }
 
-int const &Form::getGradeExec() const
+int const &AForm::getGradeExec() const
 {
 	return (this->gradeExec);
 }
 
-bool const &Form::getFirmed() const
+bool const &AForm::getFirmed() const
 {
 	return (this->firmed);
 }
 
 
 
-Form &Form::operator=(Form const &form)
+AForm &AForm::operator=(AForm const &form)
 {
 	this->name = form.name;
 	this->firmed = form.firmed;
@@ -76,19 +76,19 @@ Form &Form::operator=(Form const &form)
 }
 
 
-std::ostream &operator<<(std::ostream &out, Form const &form)
+std::ostream &operator<<(std::ostream &out, AForm const &form)
 {
 	out << form.getName() << ", " << form.getGradeSign() << ", " << form.getGradeExec() << ", " << form.getFirmed();
 	return (out);
 }
 
 
-void Form::beSigned(Bureaucrat const &bureaucrat)
+void AForm::beSigned(Bureaucrat const &bureaucrat)
 {
 	if (bureaucrat.getGrade() >= this->gradeSign)
 		this->firmed = true;
 	else
-		Form::GradeTooLowException();
+		AForm::GradeTooLowException();
 }
 
 

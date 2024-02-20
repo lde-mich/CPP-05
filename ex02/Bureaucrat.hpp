@@ -6,15 +6,15 @@
 /*   By: lde-mich <lde-mich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 11:27:07 by lde-mich          #+#    #+#             */
-/*   Updated: 2024/02/19 12:08:15 by lde-mich         ###   ########.fr       */
+/*   Updated: 2024/02/21 00:02:39 by lde-mich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream>
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -30,7 +30,8 @@ class Bureaucrat
 
 		void increment();
 		void decrement();
-		void signForm(Form &form);
+		void signForm(AForm &form);
+		void executeForm(AForm const &form);
 
 		Bureaucrat &operator=(Bureaucrat const &bureaucrat);
 

@@ -6,13 +6,15 @@
 /*   By: lde-mich <lde-mich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 12:43:30 by lde-mich          #+#    #+#             */
-/*   Updated: 2024/02/19 12:32:54 by lde-mich         ###   ########.fr       */
+/*   Updated: 2024/02/21 00:28:04 by lde-mich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #pragma once
 #include <iostream>
+#include <ctime>
+#include <cstdlib>
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;
@@ -31,11 +33,13 @@ class AForm
 		int const &getGradeExec() const;
 		bool const &getFirmed() const;
 
-		Form &operator=(Form const &form);
+		AForm &operator=(AForm const &form);
 
-		virtual void beSigned(Bureaucrat const &bureaucrat) = 0;
+		virtual void execute(Bureaucrat const &executor) const = 0;
+
+		void beSigned(Bureaucrat const &bureaucrat);
 		
-		AForm(Form const &form);
+		AForm(AForm const &form);
 		AForm(std::string name, int gradeSign, int gradeExec);
 		AForm();
 		virtual ~AForm();
@@ -59,9 +63,18 @@ class AForm
 					return ("Error Low Bureaucrate grade");
 				}
 		};
+
+		class FormNotSignedException : public std::exception
+		{
+			public:
+				std::string const printError() const throw()
+				{
+					return ("Error Form not signed");
+				}
+		};
 };
 
-std::ostream &operator<<(std::ostream &out, Form const &form);
+std::ostream &operator<<(std::ostream &out, AForm const &form);
 
 
 

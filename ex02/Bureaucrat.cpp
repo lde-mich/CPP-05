@@ -6,7 +6,7 @@
 /*   By: lde-mich <lde-mich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 11:27:16 by lde-mich          #+#    #+#             */
-/*   Updated: 2024/02/19 12:12:03 by lde-mich         ###   ########.fr       */
+/*   Updated: 2024/02/21 00:13:04 by lde-mich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,19 +86,35 @@ std::ostream &operator<<(std::ostream &out, Bureaucrat const &bureaucrat)
 
 
 
-void Bureaucrat::signForm(Form &form)
+void Bureaucrat::signForm(AForm &form)
 {
 	try
 	{
 		form.beSigned(*this);
 		std::cout << this->name << " signed " << form.getName() << std::endl;
 	}
-	catch (Form::GradeTooLowException &e)
+	catch (AForm::GradeTooLowException &e)
 	{
 		std::cout<< this->name << "couldn’t sign" 
 		<< form.getName() << "because" << e.printError()<< std::endl;
 	}
 }
+
+
+void Bureaucrat::executeForm(AForm const &form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << this->name << " executed" << form.getName() << std::endl;
+	}
+	catch (AForm::GradeTooLowException &e)
+	{
+		std::cout << "execution failed" << e.what() << std::endl;
+	}
+}
+
+
 
 
 
