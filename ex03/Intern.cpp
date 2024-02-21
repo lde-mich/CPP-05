@@ -6,7 +6,7 @@
 /*   By: lde-mich <lde-mich@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 11:00:32 by lde-mich          #+#    #+#             */
-/*   Updated: 2024/02/21 12:10:40 by lde-mich         ###   ########.fr       */
+/*   Updated: 2024/02/21 12:31:43 by lde-mich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ Intern::~Intern()
 
 Intern &Intern::operator=(Intern const &obj)
 {
+	(void) obj;
 	return (*this);
 }
 
@@ -50,16 +51,18 @@ AForm *Intern::makeForm(std::string nameForm, std::string target)
 	switch (nameForm[0])
 	{
 		case 'R':
-			tmp = new RobotomyRequestForm();
-			std::cout << "Intern creates" << tmp.getName() << std::endl;
+			tmp = new RobotomyRequestForm(target);
+			std::cout << "Intern creates" << tmp->getName() << std::endl;
 			return (tmp);
 		case 'S':
-			tmp = new ShrubberyCreationForm();
-			std::cout << "Intern creates" << tmp.getName() << std::endl;
+			tmp = new ShrubberyCreationForm(target);
+			std::cout << "Intern creates" << tmp->getName() << std::endl;
 			return (tmp);
 		case 'P':
-			tmp = new PresidentialPardonForm();
-			std::cout << "Intern creates" << tmp.getName() << std::endl;
+			tmp = new PresidentialPardonForm(target);
+			std::cout << "Intern creates" << tmp->getName() << std::endl;
+			return (tmp);
+		default:
 			return (tmp);
 	}
 }
